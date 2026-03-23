@@ -2,7 +2,12 @@ package nishant.gfg.java.oop.abstractclass;
 
 import nishant.gfg.java.oop.abstractclass.OuterAbstractClass.InnerAbstractClass;
 
-//import nishant.gfg.java.oop.abstractclass.OuterAbstractClass.InnerAbstractClass;
+/**
+ * Demonstrates:
+ * - Nested abstract classes
+ * - Inner class inheritance
+ * - Constructor chaining
+ */
 
 // Abstract classes
 abstract class OuterAbstractClass {

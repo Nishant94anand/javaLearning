@@ -1,10 +1,20 @@
 package nishant.gfg.java.oop.abstractclass;
 
+/**
+ * Demonstrates multi-level abstraction using abstract classes.
+ *
+ * 🔹 Key Concepts:
+ * - Abstract class can extend another abstract class
+ * - Partial implementation possible
+ */
 abstract class Level1 {
 	abstract void print1();
 	abstract void print2();
 }
 
+/**
+ * Level2 provides partial implementation
+ */
 abstract class Level2 extends Level1 {
 	@Override
 	public void print1() {
@@ -12,7 +22,11 @@ abstract class Level2 extends Level1 {
 	}
 }
 
+/**
+ * Final concrete class
+ */
 class Level3 extends Level2 {
+	// If included - this will execute
 //	@Override
 //	public void print1() {
 //		System.out.println("Printing 1 in Level 3");
@@ -25,6 +39,9 @@ class Level3 extends Level2 {
 	
 }
 
+/**
+ * Entry point
+ */
 public class MultiLevelAbstractClasses {
 
 	public static void main(String[] args) {
