@@ -17,7 +17,7 @@ public class Calculations {
 
         // Sample input values
         int num1 = 100;
-        int num2 = 5;
+        int num2 = 20;
 
         // Creating calculator instance
         MathCalculator calculator = new MathCalculator();
