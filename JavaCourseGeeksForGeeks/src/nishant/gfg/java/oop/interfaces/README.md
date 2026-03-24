@@ -1,0 +1,1 @@
+From the page: https://www.geeksforgeeks.org/java/interfaces-in-java/
