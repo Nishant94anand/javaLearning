@@ -1,0 +1,65 @@
+Here is my Java Command Line Ludo Game. But it is not the classic Ludo Game.
+User can ofcourse play the classic game also here, but the design provides much more power to the user to make a lot more configurable and fun game.
+Let's look at the rules first.
+
+Rules for the Game
+===================
+
+Configuration
+--------------
+1. User can configure the Ludo board as per his wish.
+	- The total length of the board can be configured. In a classic Ludo board, this size is 52, but our game allows this to be customized.
+	- Out of the total length, how much does each player have to cover before the safe zone, that data can also be configured. In classic game, each player covers 50 boxes right. Our game allows that to be custom, but of course always less than or equal to the total size.
+	- Now in classic game if you see, after covering 50 boxes the player enters the safe zone, where again 6 boxes are to be covered to finish. Here in our game, this length is also customizable. But only between 0 and 10. Entering invalid number just gives you no safe zone absolutely.
+	- Ludo board has 8 safe boxes where no capture is allowed. But we allow to enter as many safe spots as they want. Customer can make all boxes as safe if s/he wants. 
+
+2. In a classic Ludo game, each player has 4 coins. But we allow users to configure it to have more fun. But only between 1 and 10. Any other number just gives you 4 coins.
+3. In classic Ludo, there can be 2-4 players. We let that be customizable.. but ofcourse not more than the board size...
+4. Each player can configure their color (must be unique on the board).
+5. Classic ludo has 1 die with 6 sides, where 6 is treated the special number which allows a repeat chance and also allows coins to be taken out of homes. But we allow user to configure the max number obtainable on the die. We allow user to configure the special number. User can choose any number obtainable on the die to be special number, but an invalid input automatically chooses the highest number of the die to be the special number.
+
+Game Play
+----------
+- In the beginning, all coins of all players are sitting inside home.
+- Each active player gets the turn to roll the die.
+- Whatever score is obtained is recorded. 
+	- If it is a special number, another die roll is allowed.
+	- If 3 consecutive special numbers come, all 3 are cancelled. However, the turn is not cancelled. Rather, another die roll is allowed to the player.
+- Once all die rolls are done, the player is allowed to choose the coin to be moved for each score one-by-one (Player can not skip one score to go to next one. So scores list work as FIFO queue).
+	- For each score the eligible coins which can travel that much are shown.
+	- For special number, coins sitting in home are also shown.
+	- Player chooses the ID of the coin to be moved.
+	- Chosen coin is moved. If the new position of the coin already has a coin of another player, older coin is captured and current player is eligible for an extra die roll.
+	- Once all scores of the player are moved for, the turn goes to the next player. This continues in round robin.
+	- If chosen coin completes its end point, it enters into the safe zone. If that is also covered, the coin is considered complete.
+	- If all coins of a player completes, the player is considered a winner. This player shifts from Active player to the leaderboard and no more playing turns are given to this user.
+	- If there is only one player left as active, the game is considered finished. 
+
+
+
+
+Game Feel and Vibe
+==================
+I want to keep the game a little fun and quirky rather than a simple command-like interaction. So instead of messages like "Wrong input. Please re-enter" you will find things like "Dude use some common sense duhh!!" … Just builds a more fun vibe to it. 
+Also, since this is not for production only for practice, you'll not find some options like ending the game at any point, quitting mid way or reconfigure options. This is bare minimum, mainly to just practice coding, Low Level designing and in general upskilling for me as a developer.
+
+
+Important Callouts
+===================
+This is only for practice in a personal repo. So following things can be ignored.
+1. Scanner is used multiple times.
+2. Not a lot of options or ability to quit/end anytime is given.
+3. Coin can not exist without a player, and Player can not exist without a Board. That tight-coupling is indeed needed for the game.
+
+Ask
+====
+We will go step by step. First we will test functional correctness and then come on design reviews.
+
+Here is my ask from you.
+
+1. Review all the files, and test the correctness.
+	- Manual simulation and output evaluation.
+	- Edge cases testing.
+2. Mention and highlight any bugs found.
+3. Evaluate the overall design. The classes I have broken the components into, functional behaviors, everything. Score it and give me suggestions to improve it.
+4. Write a README.md file with all these rules and explanations so that I can include it in my repo.

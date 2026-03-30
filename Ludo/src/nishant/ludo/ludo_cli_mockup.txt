@@ -1,0 +1,753 @@
+========================================================================
+         CLI DRY RUN — 4 Player Classic Ludo
+         (Inputs shown as: >>> user types this)
+         (Comments shown as: // --- note ---)
+========================================================================
+
+
+****************** Welcome to your Ludo ******************
+
+
+====> Let's configure your game. It's gonna be fun.
+
+
+==== Let's configure the Board first ====
+
+==> What size of Board do you want? [The default ludo has 52]
+>>> 52
+
+==> Cool - Now let's configure the safe spots
+
+==> How many safe spots? [Default Ludo has 8: 0, 8, 13, 21, 26, 34, 39, 47]
+>>> 8
+
+Safe Spot #1: >>> 0
+Safe Spot #2: >>> 8
+Safe Spot #3: >>> 13
+Safe Spot #4: >>> 21
+Safe Spot #5: >>> 26
+Safe Spot #6: >>> 34
+Safe Spot #7: >>> 39
+Safe Spot #8: >>> 47
+
+==> What is the journey size for each player? [The default ludo has 50]
+>>> 50
+
+==> Finally.. What length do you want for the final Safe Lane for each player?
+Enter between 0 and 10. [Default Ludo has 6]
+>>> 6
+
+
+==== Ok.. Now for the fun part.. How many coins should each player have? ====
+Default ludo has 4. But don't let that stop you.
+You can enter anything between 1 and 10. Anything else and you get only 4!!
+Tell me.... How many??
+
+>>> 4
+
+
+==== Ok Now .. let's configure the players! ====
+
+==> How many players do you want (minimum 2)? [The default ludo has a minimum of 2 and  maximum of 4]
+>>> 4
+
+
+==== Configuring Player #1 ====
+
+==>Color: >>> Red
+
+==> Name: >>> Alice
+
+
+==== Configuring Player #2 ====
+
+==>Color: >>> Blue
+
+==> Name: >>> Bob
+
+
+==== Configuring Player #3 ====
+
+==>Color: >>> Green
+
+==> Name: >>> Charlie
+
+
+==== Configuring Player #4 ====
+
+==>Color: >>> Yellow
+
+==> Name: >>> Diana
+
+
+==== Ok.. Now what is the maximum number you want the die to return? ====
+>>> 6
+
+==== And now that you have the die, which number do you designate to be special? ====
+=> Beware!! If you enter an invalid number, I will just assign the highest number of the die as the special one... So you have just 1 chance!!
+>>> 6
+
+
+====> All right ... Game is configured..
+
+================== GAME ==================
+Coins per Player : 4
+Special Number   : 6
+Game Finished    : false
+
+Move Scores Queue: Empty
+
+==============
+Leaderboard
+==============
+  None
+
+==============
+
+
+Players (Turn Order)
+=====================
+
+===== Player Circular DLL =====
+[Alice | Red] -> [Bob | Blue] -> [Charlie | Green] -> [Diana | Yellow] -> (back to start)
+================================
+
+
+=========================== Players ===========================
+
+================== Player ==================
+Name              : Alice
+Color             : Red
+Start Location    : 0
+End Location      : 49
+Safe Lane Length  : 6
+Completed Coins   : 0
+Player Won        : false
+
+Coins (ID -> Coin):
+  0 ->
+0 =>[color=Red, id=0, position=-1, startPosition=0, endPosition=49, safeLaneDistanceRemaining=6, isComplete=false, player=Alice | Red]
+  1 ->
+1 =>[color=Red, id=1, position=-1, startPosition=0, endPosition=49, safeLaneDistanceRemaining=6, isComplete=false, player=Alice | Red]
+  2 ->
+2 =>[color=Red, id=2, position=-1, startPosition=0, endPosition=49, safeLaneDistanceRemaining=6, isComplete=false, player=Alice | Red]
+  3 ->
+3 =>[color=Red, id=3, position=-1, startPosition=0, endPosition=49, safeLaneDistanceRemaining=6, isComplete=false, player=Alice | Red]
+============================================
+
+
+================== Player ==================
+Name              : Bob
+Color             : Blue
+Start Location    : 13
+End Location      : 10
+Safe Lane Length  : 6
+Completed Coins   : 0
+Player Won        : false
+
+Coins (ID -> Coin):
+  0 ->
+0 =>[color=Blue, id=0, position=-1, startPosition=13, endPosition=10, safeLaneDistanceRemaining=6, isComplete=false, player=Bob | Blue]
+  // ... (coins 1-3 same pattern)
+============================================
+
+// --- [Green starts at 26, ends at 23. Yellow starts at 39, ends at 36. Omitted for brevity.] ---
+
+
+===============================================================
+
+
+================== Board ==================
+Total Size        : 52
+Player Journey    : 50
+Safe Lane Length  : 6
+
+Safe Locations    : [0, 8, 13, 21, 26, 34, 39, 47]
+
+Location -> Coin Map:
+  None
+
+Coin -> Location Map:
+  None
+===========================================
+
+
+================== Die ==================
+Max Number        : 6
+=========================================
+
+===========================================
+
+
+====> Alright!! Let's PLAY !!
+
+========================================================================
+// TURN 1 — Alice (Red)
+// All coins in home. Alice needs a 6 to bring one out.
+========================================================================
+
+==> New Die Roll Time. Score till now: []
+
+ ==> Rolling !!
+==> Number on die: 3
+== You scored 3 ==
+
+==>Final Scores: [3]
+
+==> OK.. Here's your final score order: [3]
+
+
+==> Moving for player: Alice | Red
+Scores: [3]
+
+==>Moving for score: 3
+
+
+=================================================================================================
+
+
+==> Player Alice with color Red has to move for score: 3
+
+[
+1 =>[color=Red, id=1, position=-1, ...],
+0 =>[color=Red, id=0, position=-1, ...],
+2 =>[color=Red, id=2, position=-1, ...],
+3 =>[color=Red, id=3, position=-1, ...]
+]
+
+===> No eligible coins!!
+
+Nothing to move... going to next score
+
+========================================================================
+// TURN 2 — Bob (Blue)
+// Bob rolls 6! Brings a coin out. Then rolls again and gets 4.
+========================================================================
+
+==> New Die Roll Time. Score till now: []
+
+ ==> Rolling !!
+==> Number on die: 6
+== You scored 6 ==
+
+==>Final Scores: [6]
+
+Roll again!!
+
+==> New Die Roll Time. Score till now: [6]
+
+ ==> Rolling !!
+==> Number on die: 4
+== You scored 4 ==
+
+==>Final Scores: [6, 4]
+
+==> OK.. Here's your final score order: [6, 4]
+
+
+==> Moving for player: Bob | Blue
+Scores: [6, 4]
+
+==>Moving for score: 6
+
+
+=================================================================================================
+
+
+==> Player Bob with color Blue has to move for score: 6
+
+[
+0 =>[color=Blue, id=0, position=-1, startPosition=13, endPosition=10, safeLaneDistanceRemaining=6, isComplete=false, player=Bob | Blue],
+1 =>[color=Blue, id=1, position=-1, ...],
+2 =>[color=Blue, id=2, position=-1, ...],
+3 =>[color=Blue, id=3, position=-1, ...]
+]
+
+Eligible Coins:
+
+Select coin id to move: >>> 0
+
+==>Moving coin 0for score 6
+
+==>Coin ID: 0 taken out of home to play!!
+
+================= Updated Board =================
+
+locationToCoinMap: {13=
+0 =>[color=Blue, id=0, position=13, ...]}
+
+coinToLocationMap: {
+0 =>[color=Blue, id=0, position=13, ...]=13}
+
+===============================================
+
+
+==> Moving for player: Bob | Blue
+Scores: [4]
+
+==>Moving for score: 4
+
+
+=================================================================================================
+
+
+==> Player Bob with color Blue has to move for score: 4
+
+[
+0 =>[color=Blue, id=0, position=13, endPosition=10, safeLaneDistanceRemaining=6, isComplete=false, player=Bob | Blue]
+]
+
+// --- [Coins 1,2,3 are in home and 4 is not special, so they're not eligible] ---
+
+Eligible Coins:
+
+Select coin id to move: >>> 0
+
+==>Moving coin 0for score 4
+
+// --- [position = 13+4 = 17, wrapped: 17%52 = 17] ---
+
+================= Updated Board =================
+
+locationToCoinMap: {17=
+0 =>[color=Blue, id=0, position=17, ...]}
+
+coinToLocationMap: {
+0 =>[color=Blue, id=0, position=17, ...]=17}
+
+===============================================
+
+========================================================================
+// TURN 3 — Charlie (Green)
+// Charlie rolls 6, 6, 6 — TRIPLE SPECIAL! All cancelled. Rolls again, gets 2.
+========================================================================
+
+==> New Die Roll Time. Score till now: []
+
+ ==> Rolling !!
+==> Number on die: 6
+== You scored 6 ==
+
+==>Final Scores: [6]
+
+Roll again!!
+
+==> New Die Roll Time. Score till now: [6]
+
+ ==> Rolling !!
+==> Number on die: 6
+== You scored 6 ==
+
+==>Final Scores: [6, 6]
+
+Roll again!!
+
+==> New Die Roll Time. Score till now: [6, 6]
+
+ ==> Rolling !!
+==> Number on die: 6
+== You scored 6 ==
+
+ooops!! You got 3 in a row.. your last 2 special numbers get cancelled!!
+
+Roll again!!
+
+==> New Die Roll Time. Score till now: []
+
+ ==> Rolling !!
+==> Number on die: 2
+== You scored 2 ==
+
+==>Final Scores: [2]
+
+==> OK.. Here's your final score order: [2]
+
+
+==> Moving for player: Charlie | Green
+Scores: [2]
+
+==>Moving for score: 2
+
+
+=================================================================================================
+
+
+==> Player Charlie with color Green has to move for score: 2
+
+[
+0 =>[color=Green, id=0, position=-1, ...],
+1 =>[color=Green, id=1, position=-1, ...],
+2 =>[color=Green, id=2, position=-1, ...],
+3 =>[color=Green, id=3, position=-1, ...]
+]
+
+===> No eligible coins!!
+
+Nothing to move... going to next score
+
+========================================================================
+// TURN 4 — Diana (Yellow)
+// Diana rolls 6, brings a coin out, rolls again and gets 5.
+========================================================================
+
+==> New Die Roll Time. Score till now: []
+
+ ==> Rolling !!
+==> Number on die: 6
+== You scored 6 ==
+
+==>Final Scores: [6]
+
+Roll again!!
+
+==> New Die Roll Time. Score till now: [6]
+
+ ==> Rolling !!
+==> Number on die: 5
+== You scored 5 ==
+
+==>Final Scores: [6, 5]
+
+==> OK.. Here's your final score order: [6, 5]
+
+
+==> Moving for player: Diana | Yellow
+Scores: [6, 5]
+
+==>Moving for score: 6
+
+
+=================================================================================================
+
+
+==> Player Diana with color Yellow has to move for score: 6
+
+[
+0 =>[color=Yellow, id=0, position=-1, startPosition=39, endPosition=36, safeLaneDistanceRemaining=6, isComplete=false, player=Diana | Yellow],
+1 =>[color=Yellow, id=1, position=-1, ...],
+2 =>[color=Yellow, id=2, position=-1, ...],
+3 =>[color=Yellow, id=3, position=-1, ...]
+]
+
+Eligible Coins:
+
+Select coin id to move: >>> 0
+
+==>Moving coin 0for score 6
+
+==>Coin ID: 0 taken out of home to play!!
+
+================= Updated Board =================
+
+locationToCoinMap: {17=
+0 =>[color=Blue, id=0, position=17, ...], 39=
+0 =>[color=Yellow, id=0, position=39, ...]}
+
+coinToLocationMap: {
+0 =>[color=Blue, ...]=17,
+0 =>[color=Yellow, ...]=39}
+
+===============================================
+
+
+==> Moving for player: Diana | Yellow
+Scores: [5]
+
+==>Moving for score: 5
+
+
+=================================================================================================
+
+
+==> Player Diana with color Yellow has to move for score: 5
+
+[
+0 =>[color=Yellow, id=0, position=39, ...]
+]
+
+Eligible Coins:
+
+Select coin id to move: >>> 0
+
+==>Moving coin 0for score 5
+
+// --- [position = 39+5 = 44, wrapped: 44%52 = 44] ---
+
+================= Updated Board =================
+
+locationToCoinMap: {17=
+0 =>[color=Blue, id=0, position=17, ...], 44=
+0 =>[color=Yellow, id=0, position=44, ...]}
+
+coinToLocationMap: {
+0 =>[color=Blue, ...]=17,
+0 =>[color=Yellow, ...]=44}
+
+===============================================
+
+========================================================================
+// --- [Several turns pass. Now a CAPTURE scenario.] ---
+// Alice has coin 0 at position 17. Bob's coin 0 is also at 17.
+// Alice rolls and moves coin 0 to 17. CAPTURE happens!
+========================================================================
+
+==> New Die Roll Time. Score till now: []
+
+ ==> Rolling !!
+==> Number on die: 4
+== You scored 4 ==
+
+==>Final Scores: [4]
+
+==> OK.. Here's your final score order: [4]
+
+
+==> Moving for player: Alice | Red
+Scores: [4]
+
+==>Moving for score: 4
+
+
+=================================================================================================
+
+
+==> Player Alice with color Red has to move for score: 4
+
+[
+0 =>[color=Red, id=0, position=13, endPosition=49, safeLaneDistanceRemaining=6, isComplete=false, player=Alice | Red]
+]
+
+Eligible Coins:
+
+Select coin id to move: >>> 0
+
+==>Moving coin 0for score 4
+
+// --- [position = 13+4 = 17. Bob's coin 0 is at 17. 17 is NOT a safe spot. CAPTURE!] ---
+
+
+==== !!CAPTURE!! ====
+
+
+==> Captured Coin:
+0 =>[color=Blue, id=0, position=-1, startPosition=13, endPosition=10, safeLaneDistanceRemaining=6, isComplete=false, player=Bob | Blue]
+
+================= Updated Board =================
+
+locationToCoinMap: {17=
+0 =>[color=Red, id=0, position=17, ...]}
+
+coinToLocationMap: {
+0 =>[color=Red, id=0, position=17, ...]=17}
+
+// --- [Bob's coin removed from both maps] ---
+
+===============================================
+
+
+==>Congrats!! You captured. You get another die roll!!
+
+==> New Die Roll Time. Score till now: []
+
+ ==> Rolling !!
+==> Number on die: 2
+== You scored 2 ==
+
+==>Final Scores: [2]
+
+
+==> Moving for player: Alice | Red
+Scores: [2]
+
+==>Moving for score: 2
+
+
+=================================================================================================
+
+
+==> Player Alice with color Red has to move for score: 2
+
+[
+0 =>[color=Red, id=0, position=17, ...]
+]
+
+Eligible Coins:
+
+Select coin id to move: >>> 0
+
+==>Moving coin 0for score 2
+
+================= Updated Board =================
+
+locationToCoinMap: {19=
+0 =>[color=Red, id=0, position=19, ...]}
+
+coinToLocationMap: {
+0 =>[color=Red, ...]=19}
+
+===============================================
+
+========================================================================
+// --- [Many turns pass. Now a SAFE SPOT protection scenario.] ---
+// Bob brings coin back out. Charlie's coin is at position 21 (safe spot).
+// Bob moves to 21 — no capture because it's a safe spot.
+========================================================================
+
+==> Moving for player: Bob | Blue
+Scores: [4]
+
+==>Moving for score: 4
+
+
+=================================================================================================
+
+
+==> Player Bob with color Blue has to move for score: 4
+
+[
+1 =>[color=Blue, id=1, position=17, ...]
+]
+
+Eligible Coins:
+
+Select coin id to move: >>> 1
+
+==>Moving coin 1for score 4
+
+// --- [position = 17+4 = 21. Charlie's coin IS at 21. But 21 IS a safe spot!] ---
+
+================= Updated Board =================
+
+locationToCoinMap: {21=
+1 =>[color=Blue, id=1, position=21, ...]}
+
+// --- [No CAPTURE message. Safe spot protected Charlie's coin.] ---
+// --- [locationToCoinMap[21] is now Bob's coin, Charlie's coin reference is overwritten!] ---
+// --- NOTE: This is actually a display/map issue — two coins on a safe spot, but only
+//           the last one is tracked in the map. Both coins ARE at 21 physically though.
+//           Functionally safe spot protection works correctly (no capture). ---
+
+coinToLocationMap: {
+1 =>[color=Blue, ...]=21,
+0 =>[color=Green, ...]=21}
+
+===============================================
+
+========================================================================
+// --- [End game scenario — Alice has 3 coins complete, 1 coin near finish.] ---
+// Alice's coin 3 is at position 49 (end of journey). safeLaneDistanceRemaining = 3.
+// Alice rolls 3. Coin enters safe lane and completes!
+========================================================================
+
+==> New Die Roll Time. Score till now: []
+
+ ==> Rolling !!
+==> Number on die: 3
+== You scored 3 ==
+
+==>Final Scores: [3]
+
+==> OK.. Here's your final score order: [3]
+
+
+==> Moving for player: Alice | Red
+Scores: [3]
+
+==>Moving for score: 3
+
+
+=================================================================================================
+
+
+==> Player Alice with color Red has to move for score: 3
+
+[
+3 =>[color=Red, id=3, position=49, endPosition=49, safeLaneDistanceRemaining=3, isComplete=false, player=Alice | Red]
+]
+
+Eligible Coins:
+
+Select coin id to move: >>> 3
+
+==>Moving coin 3for score 3
+
+// --- [absEndPosition = 49. 49 - 49 = 0 < 3. Enters safe lane branch.] ---
+// --- [score = 3 - 0 = 3. safeLaneDistanceRemaining = 3 - 3 = 0. checkCompletion() fires!] ---
+
+
+==>Congratulations !! Coin ID: 3 is now complete!!
+
+
+==> Coins completed for Player [Alice|Red]: 4
+
+
+==> CONGRATULATIONS !! Game Complete for Player [Alice|Red]
+
+================= Updated Board =================
+
+locationToCoinMap: {49=
+3 =>[color=Red, id=3, position=49, ..., isComplete=true, ...]}
+
+coinToLocationMap: {
+3 =>[color=Red, ...]=49}
+
+===============================================
+
+// --- [Game.move() detects hasPlayerWon() = true] ---
+// --- [Alice added to leaderboard. Removed from DLL.] ---
+// --- [moveScores cleared. checkIfGameIsFinished() called.] ---
+// --- [3 players still active — game continues.] ---
+
+========================================================================
+// --- [More turns pass. Eventually only one player remains active.] ---
+// Bob, Charlie, Diana finish in order. When Diana wins, only 1 player left.
+// The last player is auto-added to leaderboard and game ends.
+========================================================================
+
+// --- [Assume Bob finishes next, then Charlie, then Diana.] ---
+// --- [When Charlie wins and Diana is the only one left:] ---
+
+
+==> CONGRATULATIONS !! Game Complete for Player [Charlie|Green]
+
+// --- [checkIfGameIsFinished is called with Diana's node.] ---
+// --- [isSinglePlayerLeft: Diana.prev == Diana && Diana.next == Diana → true] ---
+// --- [Diana auto-added to leaderboard. isFinished = true.] ---
+
+
+==> Game FINISHED !!
+
+
+================= LEADERBOARD =================
+[
+================== Player ==================
+Name              : Alice
+Color             : Red
+...
+============================================
+,
+================== Player ==================
+Name              : Bob
+Color             : Blue
+...
+============================================
+,
+================== Player ==================
+Name              : Charlie
+Color             : Green
+...
+============================================
+,
+================== Player ==================
+Name              : Diana
+Color             : Yellow
+...
+============================================
+]
+
+
+===============================================
+
+========================================================================
+// END OF GAME
+========================================================================
