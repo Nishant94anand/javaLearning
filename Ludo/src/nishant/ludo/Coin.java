@@ -95,13 +95,6 @@ public class Coin {
 		}
 	}
 
-	private void checkCompletion() {
-		if (safeLaneDistanceRemaining == 0) {
-			isComplete = true;
-			System.out.println("\n\n==>Congratulations !! Coin ID: " + id + " is now complete!!");
-		}
-	}
-
 	public boolean isInsideHome() {
 		return position == HOME_POSITION;
 	}
@@ -122,6 +115,14 @@ public class Coin {
 		int distanceTravellable = getEndPositionForMove() - position + safeLaneDistanceRemaining;
 
 		return score <= distanceTravellable;
+	}
+	
+
+	private void checkCompletion() {
+		if (safeLaneDistanceRemaining == 0) {
+			isComplete = true;
+			System.out.println("\n\n==>Congratulations !! Coin ID: " + id + " is now complete!!");
+		}
 	}
 	
 	private int getEndPositionForMove() {
